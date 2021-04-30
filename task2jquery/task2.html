@@ -1,0 +1,33 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="tablestyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#hid").click(function(){
+ $(".hidden_row").toggle();
+ });
+ });
+</script>
+</head>
+<body>
+<div id="wrapper">
+
+<table border=1 id="table_detail" align=center cellpadding=10>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Designation</th>
+<th>DOB</th>
+<th>Action</th>
+</tr>
+
+<tr><td>111</td><td>Uday</td><td>SoftwareDeveloper</td><td>1/1/1998</td><td id="hid"><img src="C:\Users\Devender\Desktop\images.png" style="height:40%;width:20%"></td></tr>
+<tr class="hidden_row">
+<td  id="hid1" colspan=5>Uday is 25 years old and he is a SoftwareDeveloper he earns 60000 per month</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
