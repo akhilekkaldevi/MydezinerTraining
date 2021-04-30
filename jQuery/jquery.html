@@ -15,18 +15,13 @@
 			<br/>
 		</header>
 		<h2>Employee Table</h2>
-		<table class='empTable'>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Designation</th>
-				<th>DOB</th>
-				<th>Action</th>
-			</tr>
-		</table>
+		<div class="empDiv"></div>
 		<script>
         $(document).ready(function () {
-            $('.empTable').append("<tr class='display'><td>1111</td><td>Uday</td><td>Software Developer</td><td>01/01/1996</td><td><img src='arrow.png' alt='arrow image' class='action' width='25' height='22'/></td></tr>");
+			$('.empDiv').append("<table class='empTable'></table>");
+			$('.empTable').append("<th>ID</th><th>Name</th><th>Designation</th><th>DOB</th><th>Action</th>");
+            $('.empTable').append("<tr class='display'></tr>");
+            $('.display').append("<td>1111</td><td>Uday</td><td>Software Developer</td><td>01/01/1996</td><td><img src='arrow.png' alt='arrow image' class='action' width='25' height='22'/></td>");
             $('.empTable').append("<tr class='open' ><td colspan='5'><p> ---> Uday is 24 years old and he has 3 years of experience and earns 55000/month</p></td></tr>");
             $('.display').mouseenter(function () {
                 $(this).css('background-color', 'darkgrey');
@@ -34,7 +29,7 @@
                 $(this).css('background-color', 'white');
             }).css('cursor', 'pointer');
             $('.display').click(function () {
-                $('tr.display').next().toggleClass('open');     
+                $('tr.display').next().toggleClass();     
                         
             });
         });
