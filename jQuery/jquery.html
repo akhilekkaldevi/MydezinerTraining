@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<title>jQuery Task</title>
+	</head>
+	<body>
+		<header>
+			<h2>jQuery Task.</h2>
+			<br/>
+		</header>
+		<h2>Employee Table</h2>
+		<table class='empTable'>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Designation</th>
+				<th>DOB</th>
+				<th>Action</th>
+			</tr>
+		</table>
+		<script>
+        $(document).ready(function () {
+            $('.empTable').append("<tr class='display'><td>1111</td><td>Uday</td><td>Software Developer</td><td>01/01/1996</td><td><img src='arrow.png' alt='arrow image' class='action' width='25' height='22'/></td></tr>");
+            $('.empTable').append("<tr class='open' ><td colspan='5'><p> ---> Uday is 24 years old and he has 3 years of experience and earns 55000/month</p></td></tr>");
+            $('.display').mouseenter(function () {
+                $(this).css('background-color', 'darkgrey');
+            }).mouseleave(function () {
+                $(this).css('background-color', 'white');
+            }).css('cursor', 'pointer');
+            $('.display').click(function () {
+                $('tr.display').next().toggleClass('open');     
+                        
+            });
+        });
+    
+	</script>
+</body>
+</html>
