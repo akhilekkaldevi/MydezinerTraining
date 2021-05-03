@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="stylesheet" href="style.css" />
-		<script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<title>jQuery Task</title>
-	</head>
-	<body>
-		<header>
-			<h2>jQuery Task.</h2>
-			<br/>
-		</header>
-		<h2>Employee Table</h2>
-		<div class="empDiv"></div>
-		<script>
-        $(document).ready(function () {
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<title>jQuery Task</title>
+</head>
+
+<body>
+	<header>
+		<h2>jQuery Task.</h2>
+		<br />
+	</header>
+	<h2>Employee Table</h2>
+	<div class="empDiv"></div>
+	<script>
+		var id;
+		function returnId(id) {
+			id = this.id;
+		}
+		$(document).ready(function () {
+
+			let arr = [
+				{ ID: "1111", name: "Uday", Designation: "SoftwareDeveloper", DOB: "01/01/1996" },
+				{ ID: "1112", name: "satish", Designation: "Trainee Software Developer", DOB: "01/01/1999" },
+				{ ID: "1113", name: "ramesh", Designation: "Senior Software Developer", DOB: "01/01/1994" },
+				{ ID: "1114", name: "Mukesh", Designation: "SoftwareDeveloper", DOB: "01/01/1997" }
+			]
 			$('.empDiv').append("<table class='empTable'></table>");
 			$('.empTable').append("<th>ID</th><th>Name</th><th>Designation</th><th>DOB</th><th>Action</th>");
-            $('.empTable').append("<tr class='display'></tr>");
-            $('.display').append("<td>1111</td><td>Uday</td><td>Software Developer</td><td>01/01/1996</td><td><img src='arrow.png' alt='arrow image' class='action' width='25' height='22'/></td>");
-            $('.empTable').append("<tr class='open' ><td colspan='5'><p> ---> Uday is 24 years old and he has 3 years of experience and earns 55000/month</p></td></tr>");
-            $('.display').mouseenter(function () {
-                $(this).css('background-color', 'darkgrey');
-            }).mouseleave(function () {
-                $(this).css('background-color', 'white');
-            }).css('cursor', 'pointer');
-            $('.display').click(function () {
-                $('tr.display').next().toggleClass();     
-                        
-            });
-        });
-    
+			for (let i = 0; i < arr.length; i++) {
+				$('.empTable').append("<tr class='display'><td>" + arr[i].ID + "</td><td>" + arr[i].name + "</td><td>" + arr[i].Designation + "</td><td>" + arr[i].DOB + "</td><td><img src='arrow.png' alt='arrow image'  width='25' height='22' border='1px solid black' /></td></tr>");
+				$('.empTable').append("<tr class='open' id='' ><td colspan='5'><p> ---> " + arr[i].name + " is 24 years old and he has 3 years of experience and earns 55000/month</p></td></tr>");
+				let val = document.createAttribute("id");
+				val.value = i;
+				let row = document.getElementsByTagName("tr")[i + i];
+				row.getElementsByTagName("td")[4].setAttributeNode(val);
+			}
+
+
+			$('.display').mouseenter(function () {
+				$(this).css('background-color', 'darkgrey');
+			}).mouseleave(function () {
+				$(this).css('background-color', 'white');
+			}).css('cursor', 'pointer');
+			for (var i = 0; i < arr.length; i++) {
+				$("img").eq(i).click(function () {
+					$(this).parent().parent().next().toggleClass();
+				})
+			}
+			
+		/* HARD CODE:  
+		
+			$("#0").click(function () {
+				$(this).parent().next().toggleClass();
+			});
+			$("#1").click(function () {
+				$(this).parent().next().toggleClass();
+			});
+			$("#2").click(function () {
+				$(this).parent().next().toggleClass();
+			});
+			$("#3").click(function () {
+				$(this).parent().next().toggleClass();
+			});*/
+		});
+
 	</script>
 </body>
+
 </html>
