@@ -7,7 +7,7 @@ table, th,td{
     border-spacing: 15px;
     padding: 8px 8px 13px 13px;
 }
-#arrow-down {
+.arrow-down {
 width: 0; 
 height: 0; 
 border-left: 10px solid transparent;
@@ -15,17 +15,17 @@ border-right: 10px solid transparent;
 border-top: 10px solid black;
 }
 
-#arrow-down:hover{
+.arrow-down:hover{
     cursor: pointer;
 }
-#p1 {
+.data {
 text-align: center;
 padding: 10px;
 margin-left: 50px;
 border: 1px solid black;
 }
 
-#p1:hover{
+.data:hover{
     background-color: #e5eecc;
 }
 
@@ -39,6 +39,6 @@ h3{
     font-family: 'Times New Roman', Times, serif;
 }
 
-.empBData:hover{
+.empData:hover{
     background-color:powderblue;
 }
