@@ -6,20 +6,7 @@
         <title> jQuery Task("Task-2") </title> 
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-        <script>
-            $(document).ready(function(){
-                $("#main").append("<tr class = 'empData'><th> Id </th><th> Name </th><th> Designation </th><th> DOB </th><th> Action </th></tr>");
-                $("#main").append("<tr class = 'empBData'><td> 1111 </td><td> Uday </td><td> Software Developer </td><td> 01/01/1999 </td><td> <div id='arrow-down'></div> </td></tr>");
-                $("#p1").hide();
-                $('#arrow-down').click(function(){$("#main").append("<tr>",$('#p1').slideToggle('fast'),"</tr>")});
-                $('.empData').mouseenter(function () {  
-                $(this).css('background-color', '#C0C0C0');
-                  }).mouseleave(function () {
-                    $(this).css('background-color', 'white');
-                    }); 
-            });
-
-        </script>
+        <script src="task-2.js"></script>
         
     </head>
     <body>
