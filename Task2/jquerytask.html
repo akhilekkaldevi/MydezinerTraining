@@ -1,0 +1,30 @@
+<html>
+<head>
+<style>
+table,thead,th,tr,td{
+ border: 1px solid black;
+ border-collapse: collapse;
+}
+.emptab tr:hover
+{
+ background-color:#F2F2F2;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body
+<div class="emptable"></div>
+<script>
+$(document).ready(function(){
+$('.emptable').append("<table class='emptab'></table>");
+$('.emptab').append("<th>ID</th><th>Name</th><th>Designation</th><th>DOB</th><th>Action</th>");
+$('.emptab').append("<tr class='display'></tr>");
+$('.display').append("<td>1111</td><td>Uday</td><td>Software Developer</td><td>1/1/1998</td><td><img src='images.png' alt='images' class='action' width='25' height='22'/></td>");
+$('.emptab').append("<tr class='hidrow'><td colspan='5'><p>Uday is 24 years old and he has 3 years of experience and earns 55000/month</p></td></tr>");
+$(".action").click(function(){
+$("tr.hidrow").toggle();
+});
+});
+</script>
+</body>
+</html>
