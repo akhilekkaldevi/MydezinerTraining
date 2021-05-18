@@ -1,10 +1,6 @@
 import java.util.*;
 import java.io.*;
-import java.security.cert.TrustAnchor;
 import java.util.Scanner;
-
-import javax.lang.model.util.ElementScanner6;
-
 //Interface
 interface Staff
 {
@@ -14,18 +10,18 @@ interface Staff
 }
 class StaffDetails implements Staff
 {
-    Scanner sc=new Scanner(System.in);
+    Scanner sc3=new Scanner(System.in);
      String teachername,teacherteachsub;
      int teacherid;
     //override
     public void teacherDetails()
     {
-       this.teachername=sc.nextLine();
+       this.teachername=sc3.nextLine();
        this.teacherid=101;
     }
     public void teachersub()
     {
-    this.teacherteachsub=sc.nextLine();
+    this.teacherteachsub=sc3.nextLine();
     }
     public String displayTeacherDetails()
     {
@@ -34,32 +30,33 @@ class StaffDetails implements Staff
 }
 class Management
 {
-    Scanner sc=new Scanner(System.in);
+    Scanner sc1=new Scanner(System.in);
     String principalname,asstprincipalname;
     void managementDetails()
     {
-        this.principalname=sc.nextLine();
-        this.asstprincipalname=sc.nextLine();
+        this.principalname=sc1.nextLine();
+        this.asstprincipalname=sc1.nextLine();
     }
     String display()
     {
-        return(this.principalname+" and the vice principal is "+this.asstprincipalname);
+        return("principal is "+this.principalname+" and the vice principal is "+this.asstprincipalname);
     }
 }
 class School
 {
     //Constructor
-    Scanner sc=new Scanner(System.in);
+    Scanner sc2=new Scanner(System.in);
    School()
    { 
-       String scname=sc.nextLine();
-       System.out.println("School name is"+scname);
+    String scname=sc2.nextLine();
+    System.out.println("School name is"+scname);
 }
 }
-class Student{
+class Student extends School{
     String sname,shtno,sclass;
     Student(String sname,String shtno,String sclass)
     {
+        super();
         this.sname=sname;
         this.shtno=shtno;
         this.sclass=sclass;
@@ -69,33 +66,22 @@ class Student{
         System.out.println(this.sname+" "+this.shtno+" "+this.sclass);
     }
 }
- class Sample{
+ class Sample
+ {
     public static void main(String[] args)
     {
-        Scanner sc=new Scanner(System.in);
-        School sco=new School();
-        int choice;
+        Scanner s=new Scanner(System.in);
+        String sname,shtno,sclass;
         while(true)
         {
-            try{
-                choice=sc.nextInt();
-                break;
-            }
-            catch(InputMismatchException e)
-            {
-                System.out.println("choice:");
-                sc.next();
-            }
-        }
-        while(true)
-        {
+            int choice;
+            choice=s.nextInt();
             if(choice==1)
             {
-                String sname,shtno,sclass;
                 System.out.println("Get Student Details");
-                sname=sc.nextLine();
-                shtno=sc.nextLine();
-                sclass=sc.nextLine();
+                sname=s.nextLine();
+                shtno=s.nextLine();
+                sclass=s.nextLine();
                 Student st=new Student(sname,shtno,sclass);
                 st.getStudentDetails();
             }
@@ -105,11 +91,16 @@ class Student{
                 StaffDetails st1=new StaffDetails();
                 st1.teachersub();
                 st1.teacherDetails();
+                System.out.println(st1.displayTeacherDetails());
             }
-            else{
+            else if(choice==3){
                 System.out.println("Get Management Details");
                 Management m=new Management();
-                m.display();
+                m.managementDetails();
+                System.out.println(m.display());
+            }
+            else {
+                break;
             }
         }
     }
