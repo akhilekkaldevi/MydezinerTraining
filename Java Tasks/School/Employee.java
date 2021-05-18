@@ -20,6 +20,8 @@ public class Employee {
 				+ "\n empDesignation=" + empDesignation + "\n branchType=" + branchType + "\n";
 	}
 
+	//Different Types of Constructors
+	
 	public Employee(int empId, String empName, int empSalary, String empDesignation, String domain, int experience) {
 		super();
 		this.empId = empId;

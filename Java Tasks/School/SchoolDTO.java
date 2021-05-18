@@ -3,14 +3,14 @@ package School;
 import java.util.ArrayList;
 
 public class SchoolDTO {
-
+//ENCAPSULATION encapsulating the list variables within the class with private access specifier.
 	private static ArrayList<Student> studentList =new ArrayList<Student>();
 
 	private static ArrayList<Employee> employeeList=new ArrayList<Employee>();
 
-//ABSTRACTION
+//ABSTRACTION created a private class(Scho0lOperations) and a helper method(getoblect) to access the class objects.
 
-	public SchoolDAO schoolDAO() {
+	public SchoolDAO getObject() {
 		return new SchoolOperations();
 	}
 
@@ -26,9 +26,29 @@ public class SchoolDTO {
 			employeeList.add(employee);
 		}
 
+        //POLYMORPHISM METHOD OVERLOADING	
+		@Override
+		public Student searchStudent(int id) {
+			for(int i=0;i<studentList.size();i++) {
+				if(studentList.get(i).getStudentId()==id)
+					return studentList.get(i);
+			}
+			return null;
+		}
+
+		@Override
+		public Student searchStudent(String name) {
+			
+			for(int i=0;i<studentList.size();i++) {
+				if(studentList.get(i).getStudentName().equals(name))
+					return studentList.get(i);
+			}
+			return null;
+		}
+
 	}
 
-//ENCAPSULATION
+//getters and setters
 	public static ArrayList<Student> getStudentList() {
 		return studentList;
 	}

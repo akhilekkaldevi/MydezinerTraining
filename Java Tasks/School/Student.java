@@ -19,5 +19,26 @@ class Student {
 		return "\nStudent : \n studentId=" + studentId + "\n studentName=" + studentName + "\n studentDob=" + studentDob
 				+ "\n studentBranch=" + studentBranch + "\n";
 	}
+	
+	public int getStudentId() {
+		return studentId;
+	}
+
+	
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+
+	public String getStudentDob() {
+		return studentDob;
+	}
+
+
+	public String getStudentBranch() {
+		return studentBranch;
+	}
+
 
 }
