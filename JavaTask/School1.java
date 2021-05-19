@@ -4,7 +4,7 @@ import java.util.Scanner;
 //Interface
 interface Staff
 {
-    void teacherDetails();
+    public void teacherDetails();
     void teacherSub();
     String displayTeacherDetails();
 }
@@ -19,6 +19,7 @@ class StaffDetails implements Staff
        this.teacherName=sc.nextLine();
        this.teacherId=101;
     }
+    /*access modifier*/
     public void teacherSub()
     {
     this.teacherTeachSub=sc.nextLine();
@@ -65,6 +66,11 @@ class Student extends School{
     {
         System.out.println(this.sname+" "+this.shtno+" "+this.sclass);
     }
+    //polymorphism
+    void getStudentDetails(String sadminno)
+    {
+        System.out.println("Student Admission Number is "+sadminno);
+    }
 }
 
  class Sample1
@@ -73,6 +79,7 @@ class Student extends School{
     {
         Scanner sc=new Scanner(System.in);
         String sName,sHtno,sClass;
+        String studentAdmissionNumber;
         while(true)
         {
             int choice;
@@ -85,6 +92,8 @@ class Student extends School{
                 sClass=sc.nextLine();
                 Student studentObject=new Student(sName,sHtno,sClass);
                 studentObject.getStudentDetails();
+                studentAdmissionNumber=sc.nextLine();
+                studentObject.getStudentDetails(studentAdmissionNumber);
             }
             else if(choice==2)
             {

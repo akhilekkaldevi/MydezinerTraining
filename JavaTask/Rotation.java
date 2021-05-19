@@ -6,24 +6,23 @@ class Rotation
 	    Scanner sc=new Scanner(System.in);
 	    int size=sc.nextInt();
 	    int rotateTime=sc.nextInt();
-		int[] arr=new int[size];
+		List<Integer> arr=new ArrayList<Integer>();
 		for(int i=0;i<size;i++)
 		{
-		    arr[i]=sc.nextInt();
+		    arr.add(sc.nextInt());
 		}
-		//int temp=a[0];
 		for(int j=0;j<rotateTime;j++)
 		{
-		   int temp=arr[0];
+		   int temp=arr.get(0);
 		for(int i=0;i<size-1;i++)
 		{
-		    arr[i]=arr[i+1];
+		    arr.set(i,arr.get(i+1));
 		}
-		    arr[size-1]=temp;
+		    arr.set(size-1,temp);
 		}
-		for(int i=0;i<size;i++)
+		for(Integer i:arr)
 		{
-		    System.out.println(arr[i]);
+		    System.out.println(i);
 		}
 		System.out.println();
 	}

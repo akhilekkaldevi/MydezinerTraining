@@ -2,8 +2,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.*;
-class FileConcept extends Thread
+class ReadWritFile extends Thread
 {
     public void run()
     {
@@ -58,10 +59,12 @@ class Fibonacci extends Thread
 public class MultiThread  {
     public static void main(String []args)
     {
-       Fibonacci fibonaccithread=new Fibonacci();
-       FileConcept filethread=new FileConcept();
-       fibonaccithread.start(); 
-       filethread.start(); 
+       Fibonacci fib=new Fibonacci();
+       ReadWritFile readwritefile=new ReadWritFile();
+       Thread fibonacciThread=new Thread(fib);
+       fibonacciThread.start();
+       Thread fileThread=new Thread(readwritefile);
+       fileThread.start(); 
 
     }
 }
