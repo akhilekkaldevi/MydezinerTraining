@@ -1,36 +1,26 @@
-package RectangleOverlap;
+ackage RectangleOverlap;
 
 public class Rectangle {
 
-	Coordinate rectangle1LeftTop;
+	Coordinate leftTop;
 
-	Coordinate rectangle1RightBottom;
+	Coordinate rightBottom;
 
-	Coordinate rectangle2LeftTop;
-
-	Coordinate rectangle2RightBottom;
-
-	
-	public Rectangle(Coordinate rectangle1LeftTop, Coordinate rectangle1RightBottom, Coordinate rectangle2LeftTop,
-			Coordinate rectangle2RightBottom) {
+	public Rectangle(Coordinate leftTop, Coordinate rightBottom) {
 		
-		this.rectangle1LeftTop = rectangle1LeftTop;
-		this.rectangle1RightBottom = rectangle1RightBottom;
-		this.rectangle2LeftTop = rectangle2LeftTop;
-		this.rectangle2RightBottom = rectangle2RightBottom;
+		this.leftTop = leftTop;
+		this.rightBottom = rightBottom;
 	}
 
-	public void checkRectangle(Coordinate rectangle1LeftTop, Coordinate rectangle1RightBottom,
-			Coordinate rectangle2LeftTop, Coordinate rectangle2RightBottom) {
-
-		
-		if (rectangle1RightBottom.x < rectangle2LeftTop.x || rectangle2RightBottom.x < rectangle1LeftTop.x)
+	public void checkRectangle(Rectangle rectangle2) {
+	
+		if (this.rightBottom.x < rectangle2.leftTop.x || rectangle2.rightBottom.x < this.leftTop.x)
 			System.out.println("Rectangles do not overlap");
-		else if (rectangle1RightBottom.y > rectangle2LeftTop.y || rectangle2RightBottom.y > rectangle1LeftTop.y)
+		else if (this.rightBottom.y > rectangle2.leftTop.y || rectangle2.rightBottom.y > this.leftTop.y)
 			System.out.println("Rectangles do not overlap");
 		else
 			System.out.println("Rectangles are overlapping");
-		
+
 	}
 
 }

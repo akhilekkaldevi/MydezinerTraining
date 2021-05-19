@@ -1,40 +1,55 @@
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
 public class ReadWriteFile {
 	public static void main(String[] args) {
-		Operation o = new Operation();
-		Thread t=new Thread(o);
-		t.start();
+		File destination = new File("C:\\Users\\ABHIN\\Desktop\\java_files\\output.txt");
+		File f1 = new File("C:\\Users\\ABHIN\\Desktop\\java_files");
+		File[] farr = f1.listFiles();
+		for (File inputFile : farr) {
+			Operation operation = new Operation(inputFile, destination);
+			Thread thread = new Thread(operation);
+			thread.start();
+			try {
+				thread.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
-
-class Operation implements Runnable{
+class Operation implements Runnable {
+	File destination;
+	File readableFile;
+	public Operation(File readableFile, File destination) {
+		this.destination = destination;
+		this.readableFile = readableFile;
+	}
 	@Override
 	public void run() {
+		write(readableFile, destination);
+	}
+	public static void write(File readableFile, File destination) {
 		try {
-			File output = new File("C:\\Users\\ABHIN\\Desktop\\java_files\\output.txt");
-			File f1 = new File("C:\\Users\\ABHIN\\Desktop\\java_files");
-			File[] farr = f1.listFiles();
-			String append = " ";
-			String data = "";
-			for (File f : farr) {
-				BufferedReader br = new BufferedReader(new FileReader(f));
-				while ((append = br.readLine()) != null) {
-					data += append + " ";
-				}
-				br.close();
+			String appendData = "";
+			String content = "";
+			BufferedReader br = new BufferedReader(new FileReader(readableFile));
+			while ((appendData = br.readLine()) != null) {
+				content += appendData + " ";
 			}
-			output.createNewFile();
-			FileWriter fw = new FileWriter("C:\\Users\\ABHIN\\Desktop\\java_files\\output.txt");
-			fw.write(data);
-			fw.close();
+			br.close();
+			if (!destination.exists())
+				destination.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(destination, true));
+			bw.write(content);
+			bw.close();
 		} catch (Exception e) {
-			System.out.println("IOException");
+			e.printStackTrace();
 		}
 	}
 }

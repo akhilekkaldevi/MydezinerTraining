@@ -23,8 +23,10 @@ public class Anagram {
 				m.put(s1.charAt(i) + 0, s1.charAt(i));
 			}
 			for (int j = 0; j < s2.length(); j++) {
-				if (!m.containsValue(s2.charAt(j)))
+				if (!m.containsValue(s2.charAt(j))){
 					answer=false;
+					break;
+				}
 			}
 			if (answer)
 				System.out.println("given Strings are anagram");
