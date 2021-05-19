@@ -3,20 +3,20 @@ package Generics;
 public class MainClass {
 
 	public static void main(String[] args) {
-		GenericClass<String> str = new GenericClass<String>("Hello");
+		GenericClass<String> string = new GenericClass<String>("Hello");
 
-		GenericClass<Integer> i = new GenericClass<Integer>(2);
+		GenericClass<Integer> integer = new GenericClass<Integer>(2);
 
-		GenericClass<Boolean> b = new GenericClass<Boolean>(true);
+		GenericClass<Boolean> boolean = new GenericClass<Boolean>(true);
 
-		GenericClass<Employee> e = new GenericClass<Employee>(new Employee(21, "Abhinay", 20000, "Engineer"));
+		GenericClass<Employee> employee = new GenericClass<Employee>(new Employee(21, "Abhinay", 20000, "Engineer"));
 
-		GenericClass<Car> c = new GenericClass<Car>(new Car("Blue", "Ford", 2000000));
+		GenericClass<Car> car = new GenericClass<Car>(new Car("Blue", "Ford", 2000000));
 
-		System.out.println("String " + str.getData());
-		System.out.println("\nInteger " + i.getData());
-		System.out.println("\nBoolean " + b.getData());
-		System.out.println("\nEmployee Details\n" + e.getData());
-		System.out.println("\nCae Details\n" + c.getData());
+		System.out.println("String " + string.getData());
+		System.out.println("\nInteger " + integer.getData());
+		System.out.println("\nBoolean " + boolean.getData());
+		System.out.println("\nEmployee Details\n" + employee.getData());
+		System.out.println("\nCae Details\n" + car.getData());
 	}
 }

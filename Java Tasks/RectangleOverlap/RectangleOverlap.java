@@ -2,9 +2,9 @@ package RectangleOverlap;
 
 public class RectangleOverlap {
 	public void checkRectangle() {
-		Rectangle r1 = new Rectangle(new Coordinate(0, 5), new Coordinate(7, 0));
-		Rectangle r2 = new Rectangle(new Coordinate(6, 7), new Coordinate(10, 6));
-		Boolean ans = rectangleOverlap(r1.leftTop, r1.rightBottom, r2.leftTop, r2.rightBottom);
+		Rectangle rectangle1 = new Rectangle(new Coordinate(0, 5), new Coordinate(7, 0));
+		Rectangle rectangle2 = new Rectangle(new Coordinate(6, 7), new Coordinate(10, 6));
+		Boolean ans = rectangleOverlap(rectangle1.leftTop, rectangle1.rightBottom, rectangle2.leftTop, rectangle2.rightBottom);
 		if (ans)
 			System.out.println("Rectangles are overlapping");
 		else
