@@ -1,3 +1,5 @@
+import java.io.*;
+import java.
 class Fibonaaci extends Thread{
     public void run(){
         try{
@@ -18,16 +20,6 @@ class Fibonaaci extends Thread{
     }
 }
 
-class File extends Thread{
-	public void run(){
-		try{
-			
-		}
-		catch(Exception ex){
-			System.out.println("Some Error Occured with files");
-		}
-	}
-}
 
 public class Threads
 {
