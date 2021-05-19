@@ -1,4 +1,3 @@
-package JavaTask;
 import java.util.*;
 import java.io.*;
 import java.util.Scanner;
@@ -6,52 +5,52 @@ import java.util.Scanner;
 interface Staff
 {
     void teacherDetails();
-    void teachersub();
+    void teacherSub();
     String displayTeacherDetails();
 }
 class StaffDetails implements Staff
 {
-    Scanner sc3=new Scanner(System.in);
-     String teachername,teacherteachsub;
-     int teacherid;
+    Scanner sc=new Scanner(System.in);
+     String teacherName,teacherTeachSub;
+     int teacherId;
     //override
     public void teacherDetails()
     {
-       this.teachername=sc3.nextLine();
-       this.teacherid=101;
+       this.teacherName=sc.nextLine();
+       this.teacherId=101;
     }
-    public void teachersub()
+    public void teacherSub()
     {
-    this.teacherteachsub=sc3.nextLine();
+    this.teacherTeachSub=sc.nextLine();
     }
     public String displayTeacherDetails()
     {
-        return(this.teachername+" and his id "+this.teacherid+" and teaches"+" "+this.teacherteachsub+" to class X");
+        return(this.teacherName+" and his id "+this.teacherId+" and teaches"+" "+this.teacherTeachSub+" to class X");
     }
 }
 class Management
 {
-    Scanner sc1=new Scanner(System.in);
-    String principalname,asstprincipalname;
+    Scanner sc=new Scanner(System.in);
+    String principalName,asstPrincipalName;
     void managementDetails()
     {
-        this.principalname=sc1.nextLine();
-        this.asstprincipalname=sc1.nextLine();
+        this.principalName=sc.nextLine();
+        this.asstPrincipalName=sc.nextLine();
     }
     String display()
     {
-        return("principal is "+this.principalname+" and the vice principal is "+this.asstprincipalname);
+        return(this.principalName+" and the vice principal is "+this.asstPrincipalName);
     }
 }
-class School
+class School 
 {
     //Constructor
-    Scanner sc2=new Scanner(System.in);
+    Scanner sc=new Scanner(System.in);
    School()
-   { 
-    String scname=sc2.nextLine();
-    System.out.println("School name is"+scname);
-}
+   {
+    String schoolName=sc.nextLine();
+    System.out.println("School name is"+schoolName);
+    }
 }
 class Student extends School{
     String sname,shtno,sclass;
@@ -67,38 +66,39 @@ class Student extends School{
         System.out.println(this.sname+" "+this.shtno+" "+this.sclass);
     }
 }
- class Sample
+
+ class Sample1
  {
     public static void main(String[] args)
     {
-        Scanner s=new Scanner(System.in);
-        String sname,shtno,sclass;
+        Scanner sc=new Scanner(System.in);
+        String sName,sHtno,sClass;
         while(true)
         {
             int choice;
-            choice=s.nextInt();
+            choice=sc.nextInt();
             if(choice==1)
             {
                 System.out.println("Get Student Details");
-                sname=s.nextLine();
-                shtno=s.nextLine();
-                sclass=s.nextLine();
-                Student st=new Student(sname,shtno,sclass);
-                st.getStudentDetails();
+                sName=sc.nextLine();
+                sHtno=sc.nextLine();
+                sClass=sc.nextLine();
+                Student studentObject=new Student(sName,sHtno,sClass);
+                studentObject.getStudentDetails();
             }
             else if(choice==2)
             {
                 System.out.println("Get Employee Details");
-                StaffDetails st1=new StaffDetails();
-                st1.teachersub();
-                st1.teacherDetails();
-                System.out.println(st1.displayTeacherDetails());
+                StaffDetails staffObject=new StaffDetails();
+                staffObject.teacherSub();
+                staffObject.teacherDetails();
+                System.out.println(staffObject.displayTeacherDetails());
             }
             else if(choice==3){
                 System.out.println("Get Management Details");
-                Management m=new Management();
-                m.managementDetails();
-                System.out.println(m.display());
+                Management managementObject=new Management();
+                managementObject.managementDetails();
+                System.out.println(managementObject.display());
             }
             else {
                 break;

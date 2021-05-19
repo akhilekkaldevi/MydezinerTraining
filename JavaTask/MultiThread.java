@@ -39,37 +39,29 @@ class Fibonacci extends Thread
     public void run(){
     try{
     Scanner sc=new Scanner(System.in);
-        int a=0,b=1,c;
-        int n=sc.nextInt();
-        while(n>0)
-        {
-        c=a+b;
-        a=b;
-        b=c;
-        try{
-            Thread.sleep(1000);
-            System.out.println(c);
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-        n--;
-        }
-    }
-    catch(Exception e)
+    int first=0,second=1,third;
+    int n=sc.nextInt();
+    while(n>0)
     {
-        System.out.println(e);
+    third=first+second;
+    first=second;
+    second=third;
+    System.out.println(third);
+    n--;
     }
+}
+    catch (Exception e) {  
+    System.out.println(e);  
+}
 }
 }
 public class MultiThread  {
     public static void main(String []args)
     {
-       Fibonacci fth=new Fibonacci();
-       FileConcept fcth=new FileConcept();
-       fth.start(); 
-       fcth.start(); 
+       Fibonacci fibonaccithread=new Fibonacci();
+       FileConcept filethread=new FileConcept();
+       fibonaccithread.start(); 
+       filethread.start(); 
 
     }
 }

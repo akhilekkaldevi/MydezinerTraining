@@ -3,26 +3,26 @@ import java.util.*;
 import java.io.*;
 class Palindrome
 {
-    boolean check(String s,int f,int l)
+    boolean isPalindrome(String str,int firstCharIndexNumber,int lastCharIndexNumber)
     {
-        char ch[]=s.toCharArray();
-        if(f==l)
+        char charArray[]=str.toCharArray();
+        if(firstCharIndexNumber==lastCharIndexNumber)
         return true;
-        if(ch[f]==ch[l])
-        return check(s,f+1,l-1);
+        if(charArray[firstCharIndexNumber]==charArray[lastCharIndexNumber])
+        return isPalindrome(str,firstCharIndexNumber+1,lastCharIndexNumber-1);
         else
         return false;
     }
 }
- class Main
+ class PalindromeExample 
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		String s=sc.nextLine();
-		int f=0;
-		int l =s.length()-1;
+		String str=sc.nextLine();
+		int firstCharIndexNumber=0;
+		int lastCharIndexNumber =str.length()-1;
 		Palindrome p=new Palindrome();
-		if(p.check(s,f,l))
+		if(p.isPalindrome(str,firstCharIndexNumber,lastCharIndexNumber))
 		System.out.println("Given string is a palindrome");
 		else
 		System.out.println("Given string is not a palindrome");

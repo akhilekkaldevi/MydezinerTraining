@@ -1,17 +1,23 @@
 class Test<T>
 {
     T obj;
-    Test(T obj) {  this.obj = obj;  } 
-    public T getObject()  { return this.obj; }
+    Test(T obj) 
+    {  
+        this.obj = obj;  
+    } 
+    public T getObject()  
+    { 
+        return this.obj;
+    }
 }
 class Main
 {
     public static void main (String[] args)
     {
-        Test <Integer> iObj = new Test<Integer>(15);
-        System.out.println(iObj.getObject());
-        Test <String> sObj =
+        Test <Integer> integerObj = new Test<Integer>(15);
+        System.out.println(integerObj.getObject());
+        Test <String> stringObj =
                           new Test<String>("Saiteja");
-        System.out.println(sObj.getObject());
+        System.out.println(stringObj.getObject());
     }
 }
