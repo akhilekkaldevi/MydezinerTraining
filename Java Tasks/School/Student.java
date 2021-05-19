@@ -7,7 +7,7 @@ class Student {
 	private String studentBranch;
 
 	public Student(int studentId, String studentName, String studentDob, String studentBranch) {
-		super();
+		
 		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentDob = studentDob;

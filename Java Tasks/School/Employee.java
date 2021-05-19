@@ -23,7 +23,7 @@ public class Employee {
 	//Different Types of Constructors
 	
 	public Employee(int empId, String empName, int empSalary, String empDesignation, String domain, int experience) {
-		super();
+		
 		this.empId = empId;
 		this.empName = empName;
 		this.empSalary = empSalary;
@@ -33,7 +33,7 @@ public class Employee {
 	}
 
 	public Employee(int empId, String empName, int empSalary, String empDesignation, String branchType) {
-		super();
+		
 		this.empId = empId;
 		this.empName = empName;
 		this.empSalary = empSalary;

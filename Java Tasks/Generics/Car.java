@@ -6,7 +6,6 @@ public class Car {
 	public  int carPrice;
 	
 	public Car(String carColor, String carName, int carPrice) {
-		super();
 		this.carColor = carColor;
 		this.carName = carName;
 		this.carPrice = carPrice;

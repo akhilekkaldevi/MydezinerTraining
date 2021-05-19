@@ -7,7 +7,6 @@ public class Employee {
 	public String empDesignation;
 
 	public Employee(int empId, String empName, int empSalary, String empDesignation) {
-		super();
 		this.empId = empId;
 		this.empName = empName;
 		this.empSalary = empSalary;
