@@ -3,17 +3,17 @@ import java.util.Scanner;
 public class Anagram
 {
 	public static void main(String[] args) {
-		String string1,string2;
+		String firstString,secondString;
 		Scanner sc = new Scanner(System.in);
-		string1 = sc.nextLine();    // Inputting 1st string
-		string2 = sc.nextLine();    // Inputting 2nd string
+		firstString = sc.nextLine();    // Inputting 1st string
+		secondString = sc.nextLine();    // Inputting 2nd string
 		
 		/* Converting both strings to lowercase */
-		string1 = string1.toLowerCase(); 
-		string2 = string2.toLowerCase();
+		firstString = firstString.toLowerCase(); 
+		secondString = secondString.toLowerCase();
 		
 		/* Calling isAnagram() method for checking strings are anagram or not */
-		if(isAnagram(string1, string2)){
+		if(isAnagram(firstString, secondString)){
 		    System.out.println("Strings are Anagram");
 		}
 		else{
@@ -21,29 +21,29 @@ public class Anagram
 		}
 	}
 	
-	static boolean isAnagram(String string1, String string2){
+	static boolean isAnagram(String firstString, String secondString){
 	    
-	    HashMap<Character, Integer> hashmap = new HashMap<Character, Integer>();
+	    HashMap<Character, Integer> characterCount = new HashMap<Character, Integer>();
 		
-		if(string1.length() != string2.length()){
+		if(firstString.length() != secondString.length()){
 		    return false;
 		}
 		/* Cheking whether the string contains particular character and incrementing the count of respective character */
-		for(int i = 0; i < string1.length(); i++){
-		    char character = string1.charAt(i);
-		    if(hashmap.containsKey(character)){
-		        hashmap.put(character,hashmap.get(character)+1);
+		for(int i = 0; i < firstString.length(); i++){
+		    char character = firstString.charAt(i);
+		    if(characterCount.containsKey(character)){
+		        characterCount.put(character,characterCount.get(character)+1);
 		    }
 		    else{
-		        hashmap.put(character,1);
+		        characterCount.put(character,1);
 		    }
 		}
 		
 		/* Comparing 2nd string characters with 1st string characters and decrementing the count in Hashmap */
-		for(int i = 0; i < string2.length(); i++){
-		    char character = string2.charAt(i);
-		    if(hashmap.containsKey(character)){
-		        hashmap.put(character,hashmap.get(character)-1);
+		for(int i = 0; i < firstString.length(); i++){
+		    char character = secondString.charAt(i);
+		    if(characterCount.containsKey(character)){
+		        characterCount.put(character,characterCount.get(character)-1);
 		    }
 		    else{
 		        return false;

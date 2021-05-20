@@ -13,12 +13,13 @@ public class Palindrome
 	        System.out.println("String \"" + string + "\" is not palindrome.");
 	    }
 	}
-	
+	// logic to check string palindrome using recursion
 	static boolean isPalindrome(String string, int start, int end){
 	    string = string.toLowerCase();
+		//basecase
 	    if(string.length() == 0 || string.length() == 1 || start >= end)
 	        return true;
-	    
+	    //main logic
 	    if(string.charAt(start) != string.charAt(end))
 	        return false;
 	    else
