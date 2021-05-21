@@ -38,16 +38,23 @@ public class Anagram
 		        characterCount.put(character,1);
 		    }
 		}
-		
+	
 		/* Comparing 2nd string characters with 1st string characters and decrementing the count in Hashmap */
-		for(int i = 0; i < firstString.length(); i++){
+		for(int i = 0; i < secondString.length(); i++){
 		    char character = secondString.charAt(i);
 		    if(characterCount.containsKey(character)){
 		        characterCount.put(character,characterCount.get(character)-1);
 		    }
-		    else{
-		        return false;
-		    }
+		}
+		 
+		/* Checking whether count of characters in the hashmap is "0" */ 
+		for (int i : characterCount.values()) {
+			if(i == 0){
+				continue;
+			}
+			else{
+				return false;
+			}
 		}
 		return true;
 	}

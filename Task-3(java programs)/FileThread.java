@@ -1,44 +1,77 @@
 import java.io.*;
-import java.util.Scanner;
 
-class Files extends Thread{
-	public void run(){
+public class FileThread {
+    public static void main(String[] args) {
+        Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+        File directory = new File("C:\\Users\\PremNarsimlu\\Desktop\\myTraining\\MydezinerTraining\\Task-3(java programs)\\sample");
+        File destination = new File("C:\\Users\\PremNarsimlu\\Desktop\\myTraining\\MydezinerTraining\\Task-3(java programs)\\sample\\dest.txt");
 		try{
-			Scanner sc = new Scanner(System.in);
-			String file1 = sc.nextLine();
-			File fil1 = new File(file1);
-			String file3 = sc.nextLine();
-			File fil3 = new File(file3);
-			String file2 = sc.nextLine();
-			File fil2 = new File(file2);
-			
-		    FileInputStream in = new FileInputStream(fil1);
-			FileInputStream in1 = new FileInputStream(fil2);
-			FileOutputStream out = new FileOutputStream(fil3);
-			int n;
-			while((n=in.read()) != -1){
-				out.write(n);
-			}
-			
-			while((n=in1.read()) != -1){
-				out.write(n);
-			}
-			in.close();
-			in1.close();
-			out.close();
+			destination.createNewFile();
 		}
-		catch(IOException ex){
-			System.out.println("Some Error Occured with files");
-			ex.printStackTrace();
+		catch(IOException e){
+			System.out.println("Error occurred with file creation");
+			e.printStackTrace();
 		}
-	}
-}
-
-public class FileThread
-{
-	public static void main(String[] args) {
+        File[] files = directory.listFiles();
+        for (File file : files) {
+            ReadnWriter w1 = new ReadnWriter(file, destination);
+            Thread t = new Thread(w1);
+            t.setPriority(Thread.MAX_PRIORITY);
+            t.start();
+           
+        }
 		
-		Files fl = new Files();
-		fl.start();
-	}
+    }
+}
+ 
+class ReadnWriter extends Thread{
+	File source;
+	File destination;
+    public ReadnWriter(File source,File destination) {
+		this.source = source;
+		this.destination = destination;
+    }
+    @Override
+    public void run() {
+        String data;
+        data =   readFromFile(source.getAbsolutePath());
+        writeToFile(destination,data);      
+    }
+   
+    static void writeToFile(File file,String data) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file,true));
+            writer.write(data);
+            writer.flush();
+			writer.close();
+        } catch (IOException e) {
+			System.out.println("Error occured with I/O");
+            e.printStackTrace();
+        }
+		
+    }
+ 
+    static String readFromFile(String filename){
+        StringBuffer data = new StringBuffer();
+        try {
+            String text;
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            while((text = reader.readLine())!=null){
+				data.append(text);
+                data.append("\n");
+            }
+			reader.close();	
+        } 
+		catch (FileNotFoundException e) {
+			System.out.println("File not found, create a new file or read from another file");
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+			System.out.println("Error occured with I/O");
+            e.printStackTrace();
+        }
+    return data.toString(); 
+    }
+ 
+   
 }

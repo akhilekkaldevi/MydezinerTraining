@@ -1,12 +1,16 @@
 import java.util.Scanner;
-public class OverlapRectangles
-{
-	// declaring a class for co-ordinate
-    static class Point{
-        double x, y;
-    }
+
+public class OverlapRectangles{
+    double x, y;
+		
+	OverlapRectangles(double x, double y){
+		this.x = x;
+		this.y = y;
+	}
+ 
+	
     // method for checking whether the rectangles are overlapping or not
-    static boolean overlapOrNot(Point bl1, Point tr1, Point bl2, Point tr2){
+    static boolean overlapOrNot(OverlapRectangles bl1, OverlapRectangles tr1, OverlapRectangles bl2, OverlapRectangles tr2){
         if(tr1.x <= bl2.x || tr2.x <= bl1.x)
             return false;
         if(bl1.y >= tr2.y || bl2.y >= tr1.y)
@@ -15,20 +19,15 @@ public class OverlapRectangles
     }
     
 	public static void main(String[] args) {
-	    Point bl1 = new Point();
-	    Point tr1 = new Point();
-	    Point bl2 = new Point();
-	    Point tr2 = new Point();
-	    Scanner scanner = new Scanner(System.in); 
-		// Taking input from user for rectangle's co-ordinates
-	    bl1.x = scanner.nextDouble();
-	    bl1.y = scanner.nextDouble();
-	    tr1.x = scanner.nextDouble();
-	    tr1.y = scanner.nextDouble();
-	    bl2.x = scanner.nextDouble();
-	    bl2.y = scanner.nextDouble();
-	    tr2.x = scanner.nextDouble();
-	    tr2.y = scanner.nextDouble();
+		Scanner scanner = new Scanner(System.in);
+		
+		// Give bottom-left and top-right co-ordinates of a rectangle.
+		System.out.println("Give Bottom-Left and Top-Right co-ordinates of Rectangle");
+	    OverlapRectangles bl1 = new OverlapRectangles(scanner.nextDouble(),scanner.nextDouble());
+	    OverlapRectangles tr1 = new OverlapRectangles(scanner.nextDouble(),scanner.nextDouble());
+	    OverlapRectangles bl2 = new OverlapRectangles(scanner.nextDouble(),scanner.nextDouble());
+	    OverlapRectangles tr2 = new OverlapRectangles(scanner.nextDouble(),scanner.nextDouble());
+	    
 		// calling method for checking overlapping condition
 	    if(overlapOrNot(bl1,tr1,bl2,tr2)){
 	        System.out.println("Rectangles are Overlapped");
