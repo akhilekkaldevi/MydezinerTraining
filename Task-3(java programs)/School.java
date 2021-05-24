@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.io.*;
 
 interface Inter{
 	void addDetails();
@@ -76,54 +76,66 @@ class Teachers{
 }
 
 class StudentAD{
-	public static ArrayList<Students> student =new ArrayList<Students>();
+	private static ArrayList<Students> student =new ArrayList<Students>();
 	
 	static void addDetails(Students studnt){
 		student.add(studnt);
 	}
-	static void printDetails(){
-		System.out.println(student);
+	
+	static ArrayList<Students> getStudentList(){
+		return student;
 	}
-		
 }
 
-class ManagementAD{
+class ManagementAD extends StudentAD{
 	public static ArrayList<Management> mgmt =new ArrayList<Management>();
 	static void addDetails(Management mgmtObj){
 		mgmt.add(mgmtObj);
 	}
-	static void printDetails(){
-		System.out.println(mgmt);
+	static ArrayList<Management> getManagementList(){
+		return mgmt;
 	}
 }
 
-class TeachersAD{
+class TeachersAD extends StudentAD{
 	public static ArrayList<Teachers> teacher =new ArrayList<Teachers>();
 	
 	static void addDetails(Teachers tObj){
 		teacher.add(tObj);
 	}
-	static void printDetails(){
-		System.out.println(teacher);
+	static ArrayList<Teachers> getTeachersList(){
+		return teacher;
 	}
 }
 
 public class School
 {
 	public static void main(String[] args) {
+		try
+        {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } 
+		catch (IOException | InterruptedException ex) {}
 		System.out.println("Enter your Choice: ");
-		System.out.println("1. Add Student Details\n2. Add Teachers Details\n3. Add Management Details\n4. Print Student Details\n5. Print Teachers Details\n6. Print Management Details");
+		System.out.println("1. Add Student Details\n2. Add Teachers Details\n3. Add Management Details\n4. Print Student Details\n5. Print Teachers Details\n6. Print Management Details\n7. Exit");
 		
 		int input;
 		Scanner sc = new Scanner(System.in);
 		Students obj1 = new Students("Rajesh",1,"CSE","7799397738","16/12/1999");
-		Modify.addDetails(obj1);
+		StudentAD.addDetails(obj1);
 		Students obj2 = new Students("Abhi",2,"ECE","1234567890","01/01/1999");
-		Modify.addDetails(obj2);
+		StudentAD.addDetails(obj2);
 		Teachers obj3 = new Teachers("Upendra",5201,"CSE",50000,"0987654321","01/01/1978");
+		TeachersAD.addDetails(obj3);
 		Teachers obj4 = new Teachers("Sathhesh",5202,"CSE",60000,"9876543210","02/02/1978");
+		TeachersAD.addDetails(obj4);
 		Management obj5 = new Management("Santhosh",0202,"Principal",90000,"8976543210","03/03/1970");
+		ManagementAD.addDetails(obj5);
 		Management obj6 = new Management("Rajesh V",0205,"Accounts",30000,"7896543210","04/04/1980");
+		ManagementAD.addDetails(obj6);
 		
 		while(true){
 			input = sc.nextInt();
@@ -184,15 +196,23 @@ public class School
 						 
 						 
 				case 4 : System.out.println("Students Details: ");
-						 StudentAD.printDetails();
+						 System.out.println(StudentAD.getStudentList());
+						 //StudentAD.printDetails();
 						 break;
 					
 				case 5 : System.out.println("Teachers Details: ");
-						 TeachersAD.printDetails();
+						 System.out.println(TeachersAD.getTeachersList());
+						 //TeachersAD.printDetails();
 						 break;
 						 
 				case 6 : System.out.println("Management Details: ");
-						 ManagementAD.printDetails();
+						 System.out.println(ManagementAD.getManagementLists());
+						 //ManagementAD.printDetails();
+						 break;
+						 
+				case 7 : System.exit(0);
+				
+				case 8 : System.out.println(StudentAD.getStudentList());
 						 break;
 			}
 			
