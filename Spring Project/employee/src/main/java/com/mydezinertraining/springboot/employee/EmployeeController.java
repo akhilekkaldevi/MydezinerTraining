@@ -17,13 +17,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
-    public void setEmployeeService(@RequestBody Employee employees ){
-        employeeService.setEmployeeRepository(employees);
+    public void addEmployeeService(@RequestBody Employee employees ){
+        employeeService.updateEmployeeRepository(employees);
     }
 
     @PutMapping("/employee/{id}")
     public void updateEmployeeService(@RequestBody Employee employees ,@PathVariable Long id){
-        employeeService.setEmployeeRepository(employees);
+        employeeService.updateEmployeeRepository(employees);
     }
 
     @DeleteMapping("/employee/{id}")

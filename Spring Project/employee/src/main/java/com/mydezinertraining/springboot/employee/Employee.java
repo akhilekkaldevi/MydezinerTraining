@@ -3,7 +3,6 @@ package com.mydezinertraining.springboot.employee;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @Entity
@@ -15,20 +14,20 @@ public class Employee {
     private String employeeName;
     @Column(name="emp_description")
     private String designation;
-    @Column(name="emp_dob")
-    private String dob;
-    @Column(name="emp_doj")
-    private String doj;
+    @Column(name="emp_date_of_birth")
+    private String dateOfBirth;
+    @Column(name="emp_date_of_joining")
+    private String dateOfJoining;
 
     public Employee() {
     }
 
-    public Employee(Long id, String employeeName, String designation, String dob, String doj) {
+    public Employee(Long id, String employeeName, String designation, String dateOfBirth, String dateOfJoining) {
         this.id = id;
         this.employeeName = employeeName;
         this.designation = designation;
-        this.dob = dob;
-        this.doj = doj;
+        this.dateOfBirth = dateOfBirth;
+        this.dateOfJoining = dateOfJoining;
     }
 
     public Long getId() {
@@ -55,19 +54,19 @@ public class Employee {
         this.designation = designation;
     }
 
-    public String getDob() {
-        return dob;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public String getDoj() {
-        return doj;
+    public String getDateOfJoining() {
+        return dateOfJoining;
     }
 
-    public void setDoj(String doj) {
-        this.doj = doj;
+    public void setDateOfJoining(String dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
     }
 }
