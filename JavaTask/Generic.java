@@ -1,3 +1,10 @@
+import java.util.*;
+class Shop
+{
+    Scanner sc=new Scanner(System.in);
+    int a=sc.nextInt();
+    
+}
 class Test<T>
 {
     T obj;
@@ -19,5 +26,10 @@ class Main
         Test <String> stringObj =
                           new Test<String>("Saiteja");
         System.out.println(stringObj.getObject());
+        Shop sh=new Shop();
+        Test <Shop> shopping= new Test<Shop>(sh);
+        
+        System.out.println(shopping.getClass());
+        
     }
 }
