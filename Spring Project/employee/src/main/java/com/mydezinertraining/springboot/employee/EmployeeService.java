@@ -1,6 +1,7 @@
 package com.mydezinertraining.springboot.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class EmployeeService implements Service {
     }
 
     public List<Employee> getEmployeeRepository() {
-        return employeeRepository.findAll();
+        return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     public void deleteEmployeeRepository(Long id) {

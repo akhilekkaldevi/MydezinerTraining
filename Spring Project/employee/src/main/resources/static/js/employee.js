@@ -19,5 +19,52 @@ $(document).ready(function () {
             })
         }
     });
+   $("#delete_btn").click(function(){
+        id=document.getElementById("delete").value;
+        $.ajax({
+            url:'http://localhost:8080/employee/'+id,
+            type:'DELETE',
+            success:function(result){
+            console.log("deleted");
+            }
+        });
+   });
+   $("#update_btn").click(function() {
 
+        data=JSON.stringify($("#update_form").formToJson());
+
+        id=document.getElementById("update_id").value;
+        $.ajax({
+           url:'http://localhost:8080/employee/'+id,
+           type:'PUT',
+           contentType: 'application/json',
+           data: data,
+           success:function(data){
+                  if(data.success == true){
+                       setTimeout(function(){
+                               location.reload();
+                       }, 10000);
+                  }
+           }
+        });
+   });
+    $("#post_btn").click(function() {
+
+           data=JSON.stringify($("#post_form").formToJson());
+
+           $.ajax({
+              url:'http://localhost:8080/employee/',
+              type:'POST',
+              contentType: 'application/json',
+              data: data,
+              success:function(data){
+                         if(data.success == true){
+                            setTimeout(function(){
+                                 location.reload();
+                            }, 10000);
+                         }
+              }
+           });
+      });
 });
+

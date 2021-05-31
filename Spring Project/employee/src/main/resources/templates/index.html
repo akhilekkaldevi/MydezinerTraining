@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
     <title>Spring Boot Task</title>
 </head>
 
@@ -15,10 +17,57 @@
     <h2>Spring Boot Task.</h2>
     <br />
 </header>
-<h2>Employee Table</h2>
-<div class="empDiv"></div>
+
+<div style="display:flex;flex-direction:row">
+    <div style="display:flex;flex-direction:column;" class="empDiv"><h2>Employee Table</h2></br></div>
+    <div style="display:flex;flex-direction:column;">
+        <div >
+            <form style="margin-left:40px">
+                <h2>Delete Table</h2>
+                <p>Enter employee id to be deleted : </p>
+                <p>id : </p>
+                <input type="text" id="delete">
+                <input style="margin-left:5px" type="submit" id="delete_btn">
+            </form>
+        </div>
+        <div >
+            <form id="update_form" style="margin-left:40px">
+                <h2>Update Table</h2>
+                <p>Enter Details to Update :</p>
+                <p>id : </p>
+                <input name="id" type="text" id="update_id">
+                <p>employeeName : </p>
+                <input name="employeeName" type="text">
+                <p>designation : </p>
+                <input name="designation" type="text">
+                <p>dateOfBirth : </p>
+                <input name="dateOfBirth" type="text">
+                <p>dateOfJoining : </p>
+                <input name="dateOfJoining" type="text">
+                <input style="margin-left:5px" type="submit" id="update_btn">
+            </form>
+        </div>
+        <div >
+            <form id="post_form" style="margin-left:40px">
+                <h2>Post Data</h2>
+                <p>Enter Details to post :</p>
+                <p>id : </p>
+                <input name="id" type="text" id="post_id">
+                <p>employeeName : </p>
+                <input name="employeeName" type="text">
+                <p>designation : </p>
+                <input name="designation" type="text">
+                <p>dateOfBirth : </p>
+                <input name="dateOfBirth" type="text">
+                <p>dateOfJoining : </p>
+                <input name="dateOfJoining" type="text">
+                <input style="margin-left:5px" type="submit" id="post_btn">
+            </form>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript"  src="js/employee.js"></script>
+<script type="text/javascript"  src="js/formToJson.min.js"></script>
 </body>
 
-</html>
