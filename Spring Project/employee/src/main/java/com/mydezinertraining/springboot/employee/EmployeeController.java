@@ -9,25 +9,25 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private IEmployeeService employeeService;
 
     @RequestMapping("/employee")
     public List<Employee>  getEmployeeService(){
-        return employeeService.getEmployeeRepository();
+        return employeeService.getEmployee();
     }
 
     @PostMapping("/employee")
     public void addEmployeeService(@RequestBody Employee employees ){
-        employeeService.updateEmployeeRepository(employees);
+        employeeService.updateEmployee(employees);
     }
 
     @PutMapping("/employee/{id}")
     public void updateEmployeeService(@RequestBody Employee employees ,@PathVariable Long id){
-        employeeService.updateEmployeeRepository(employees);
+        employeeService.updateEmployee(employees);
     }
 
     @DeleteMapping("/employee/{id}")
     public void deleteEmployeeService(@PathVariable Long id){
-        employeeService.deleteEmployeeRepository(id);
+        employeeService.deleteEmployee(id);
     }
 }

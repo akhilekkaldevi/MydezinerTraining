@@ -8,15 +8,15 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
     @Id
-    @Column(name="emp_id")
+    @Column(name="id")
     private Long id;
-    @Column(name="emp_name")
+    @Column(name="name")
     private String employeeName;
-    @Column(name="emp_description")
+    @Column(name="description")
     private String designation;
-    @Column(name="emp_date_of_birth")
+    @Column(name="date_of_birth")
     private String dateOfBirth;
-    @Column(name="emp_date_of_joining")
+    @Column(name="date_of_joining")
     private String dateOfJoining;
 
     public Employee() {

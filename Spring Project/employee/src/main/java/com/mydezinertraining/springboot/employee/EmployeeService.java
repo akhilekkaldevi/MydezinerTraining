@@ -6,20 +6,20 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 
 @org.springframework.stereotype.Service
-public class EmployeeService implements Service {
+public class EmployeeService implements IEmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public void updateEmployeeRepository(Employee employees){
+    public void updateEmployee(Employee employees){
         employeeRepository.save(employees);
     }
 
-    public List<Employee> getEmployeeRepository() {
+    public List<Employee> getEmployee() {
         return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
-    public void deleteEmployeeRepository(Long id) {
+    public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
     }
 }
