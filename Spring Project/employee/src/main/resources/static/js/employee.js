@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.get('http://localhost:8080/employee',function (data) {
-        console.log(data);
+        
         $('.empDiv').append("<table class='empTable'></table>");
         $('.empTable').append("<th>ID</th><th>Name</th><th>Designation</th><th>Date Of Birth</th><th>Action</th>");
         for (let i = 0; i < data.length; i++) {
@@ -30,10 +30,16 @@ $(document).ready(function () {
         });
    });
    $("#update_btn").click(function() {
-
-        data=JSON.stringify($("#update_form").formToJson());
-
         id=document.getElementById("update_id").value;
+        object={ "id":document.getElementById("update_id").value,
+        "employeeName":document.getElementById("employeeName").value,
+        "designation":document.getElementById("designation").value,
+        "dateOfBirth":document.getElementById("dateOfBirth").value,
+        "dateOfJoining":document.getElementById("dateOfJoining").value
+        };
+
+        data= JSON.stringify(object);
+
         $.ajax({
            url:'http://localhost:8080/employee/'+id,
            type:'PUT',
@@ -50,7 +56,14 @@ $(document).ready(function () {
    });
     $("#post_btn").click(function() {
 
-           data=JSON.stringify($("#post_form").formToJson());
+        object={ "id":document.getElementById("post_id").value,
+        "employeeName":document.getElementById("p_employeeName").value,
+        "designation":document.getElementById("p_designation").value,
+        "dateOfBirth":document.getElementById("p_dateOfBirth").value,
+        "dateOfJoining":document.getElementById("p_dateOfJoining").value
+        };
+
+         data= JSON.stringify(object);
 
            $.ajax({
               url:'http://localhost:8080/employee/',
