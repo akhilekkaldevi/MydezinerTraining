@@ -8,11 +8,11 @@ import { SpringbootserviceService } from './springbootservice.service';
 })
 export class AppComponent implements OnInit{
   title = 'Employee Details';
-  data:any;
+  employee_data:any;
   constructor(private springservice:SpringbootserviceService){}
   ngOnInit()
   {
-    this.springservice.getEmployees().subscribe(response=>{this.data=response;});
+    this.springservice.getEmployees().subscribe(response=>{this.employee_data=response;});
   }
   
 }
