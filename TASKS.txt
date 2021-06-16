@@ -1,4 +1,0 @@
-								TRAINING
-
-	TASK:
-	1.           build customfurnish using html and css without any external libraries
