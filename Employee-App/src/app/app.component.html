@@ -1,0 +1,30 @@
+
+<header>
+    <h2>Spring Boot Task.</h2>
+    <br />
+</header>
+<h2>Employee Table</h2><br>
+<div style="display:flex;flex-direction:row">
+    
+    <div style="display:flex;flex-direction:column;" class="empDiv">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Date Of Birth</th>
+                <th>Date of Joining</th>
+            </tr>
+
+            <tr class='display' *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.employeeName}}</td>
+                <td>{{employee.designation}}</td>
+                <td>{{employee.dateOfBirth}}</td>
+                <td>{{employee.dateOfJoining  }}</td>
+             
+            </tr>
+        </table>
+    </div>
+</div>
+<router-outlet></router-outlet>
