@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cs/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <title>Spring Boot Task</title>
+</head>
+
+<body>
+<header>
+    <h2>Spring Boot Task.</h2>
+    <br />
+</header>
+
+<div style="display:flex;flex-direction:row">
+    <div style="display:flex;flex-direction:column;" class="empDiv"><h2>Employee Table</h2></br></div>
+    <div style="display:flex;flex-direction:column;">
+        <div >
+            <form style="margin-left:40px">
+                <h2>Delete Table</h2>
+                <p>Enter employee id to be deleted : </p>
+                <p>id : </p>
+                <input type="text" id="delete">
+                <input style="margin-left:5px" type="submit" id="delete_btn">
+            </form>
+        </div>
+        <div >
+            <form id="update_form" style="margin-left:40px">
+                <h2>Update Table</h2>
+                <p>Enter Details to Update :</p>
+                <p>id : </p>
+                <input name="id" type="text" id="update_id">
+                <p>name : </p>
+                <input name="name" type="text">
+                <p>salary : </p>
+                <input name="salary" type="text">
+                <p>companyname : </p>
+                <input name="companyname" type="text">
+                <input style="margin-left:5px" type="submit" id="update_btn">
+            </form>
+        </div>
+        <div >
+            <form id="post_form" style="margin-left:40px">
+                <h2>Post Data</h2>
+                <p>Enter Details to post :</p>
+                <p>id : </p>
+                <input name="id" type="text" id="update_id">
+                <p>name : </p>
+                <input name="name" type="text">
+                <p>salary : </p>
+                <input name="salary" type="text">
+                <p>companyname : </p>
+                <input name="companyname" type="text">
+                <input style="margin-left:5px" type="submit" id="post_btn">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"  src="js/script.js"></script>
+<script type="text/javascript"  src="js/script1.js"></script>
+</body>
+</html>
