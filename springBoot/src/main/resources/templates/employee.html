@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="task-2.css" />
+        <title> SPRING BOOT TASK </title> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="task-2(1).js"></script>
+    </head>
+    <body>
+        <div style="display:flex;flex-direction:row">
+            <h1> SPRING BOOT TASK </h1>
+            <div style="display:flex;flex-direction:column;" class="table"><h2>Employee Details</h2></br></div>
+            <div style="display:flex;flex-direction:column;">
+                <div >
+                    <form style="margin-left:50px">
+                        <h2>Delete the Employee Details</h2>
+                        <p>Enter Employee id to be deleted : </p>
+                        <input type="text" id="delete">
+                        <input style="margin-left:5px" type="submit" id="delete_btn">
+                    </form>
+                </div>
+                <div >
+                    <form id="update_form" style="margin-left:50px">
+                        <h2>Update Employee Details</h2>
+                        <p>Enter the details to be updated (id) :</p>
+                        <p>Id : </p>
+                        <input name="id" type="text" id="id_update">
+                        <p>employeeName : </p>
+                        <input id="name_update" type="text">
+                        <p>Date of Birth : </p>
+                        <input id="birthDate_update" type="text">
+                        <p>Role/Designation : </p>
+                        <input id="role_update" type="text">
+                        <input style="margin-left:5px" type="submit" id="update_btn">
+                    </form>
+                </div>
+                <div >
+                    <form id="post_form" style="margin-left:50px">
+                        <h2>POST Data</h2>
+                        <p>Enter Details to post :</p>
+                        <p>id : </p>
+                        <input name="id" type="text" id="id_post">
+                        <p>Employee Name : </p>
+                        <input id="name_post" type="text">
+                        <p>Date of Birth : </p>
+                        <input id="birthDate_post" type="text">
+                        <p>Role/Designation : </p>
+                        <input id="role_post" type="text">
+                        <input style="margin-left:5px" type="submit" id="post_btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
